@@ -1,8 +1,14 @@
 async function getTickets() {
-  const res = await fetch("http://localhost:4000/tickets");
-  //returns a promise
-  return res.json();
-}
+    const res = await fetch('http://localhost:4000/tickets', {
+        //revalidate data based on options added (30seconds) would be every 30seconds whilst 0 means he data will never be cached and will always be fresh
+      next: {
+        revalidate: 0 // use 0 to opt out of using cache
+      }
+    })
+  
+    return res.json()
+  }
+  
 
 export default async function Ticketlist() {
   const tickets = await getTickets();
