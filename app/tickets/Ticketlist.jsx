@@ -24,5 +24,5 @@ export default async function Ticketlist() {
 
       {tickets.length === 0 && <p> There are no open tickets</p>}
     </>
-  );
+  )
 }
